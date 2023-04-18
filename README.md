@@ -1,29 +1,27 @@
 # Mara20000.github.io
 
 <script>
-document.cookie = "reader=1; SameSite=None; Secure";
-
-function checkACookieExists() {
-  if (
-    document.cookie.split(";").some((item) => item.trim().startsWith("reader="))
-  ) {
-    const output = document.getElementById("a-cookie-existence");
-    output.textContent = '> The cookie "reader" exists';
+function checkCookieHasASpecificValue() {
+  if (document.cookie.split(";").some((item) => item.includes("reader=1"))) {
+    const output = document.getElementById("a-specific-value-of-the-cookie");
+    output.textContent = '> The cookie "reader" has a value of "1"';
   }
 }
 
-function clearOutputACookieExists() {
-  const output = document.getElementById("a-cookie-existence");
+function clearASpecificValueOfTheCookie() {
+  const output = document.getElementById("a-specific-value-of-the-cookie");
   output.textContent = "";
 }
 </script>
 
 <body>
-<button onclick="checkACookieExists()">Check a cookie exists</button>
+<button onclick="checkCookieHasASpecificValue()">
+  Check that a cookie has a specific value
+</button>
 
-<button onclick="clearOutputACookieExists()">Clear</button>
+<button onclick="clearASpecificValueOfTheCookie()">Clear</button>
 
 <div>
-  <code id="a-cookie-existence"></code>
+  <code id="a-specific-value-of-the-cookie"></code>
 </div>
 </body>
