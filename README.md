@@ -1,4 +1,5 @@
 # Mara20000.github.io
+
 <script>
 document.cookie = "name=oeschger; SameSite=None; Secure";
 document.cookie = "favorite_food=tripe; SameSite=None; Secure";
