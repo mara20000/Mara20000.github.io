@@ -23,7 +23,7 @@ function clearOutputCookieValue() {
 <body>
 <button onclick="showCookieValue()">Show cookie value</button>
 
-<button onclick="clearOutputCookieValue()">Clear</button>
+<button onclick="clearOutputCookieValue()">Clear!!!!</button>
 
 <div>
   <code id="cookie-value"></code>
