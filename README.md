@@ -1,31 +1,36 @@
 # Mara20000.github.io
 
 <script>
-document.cookie = "test1=Hello; SameSite=None; Secure";
-document.cookie = "test2=World; SameSite=None; Secure";
+function doOnce() {
+  if (
+    !document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("doSomethingOnlyOnce"))
+  ) {
+    // Note that we are setting `SameSite=None;` in this example because the example
+    // needs to work cross-origin.
+    // It is more common not to set the `SameSite` attribute, which results in the default,
+    // and more secure, value of `SameSite=Lax;`
+    document.cookie =
+      "doSomethingOnlyOnce=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";
 
-const cookieValue = document.cookie
-  .split("; ")
-  .find((row) => row.startsWith("test2="))
-  ?.split("=")[1];
-
-function showCookieValue() {
-  const output = document.getElementById("cookie-value");
-  output.textContent = `> ${cookieValue}`;
+    const output = document.getElementById("do-once");
+    output.textContent = "> Do something here!";
+  }
 }
 
-function clearOutputCookieValue() {
-  const output = document.getElementById("cookie-value");
+function clearOutputDoOnce() {
+  const output = document.getElementById("do-once");
   output.textContent = "";
 }
 </script>
 
 <body>
-<button onclick="showCookieValue()">Show cookie value</button>
+<button onclick="doOnce()">Only do something once</button>
 
-<button onclick="clearOutputCookieValue()">Clear!!!!</button>
+<button onclick="clearOutputDoOnce()">Clear</button>
 
 <div>
-  <code id="cookie-value"></code>
+  <code id="do-once"></code>
 </div>
 </body>
