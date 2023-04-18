@@ -19,7 +19,7 @@ function clearASpecificValueOfTheCookie() {
   Check that a cookie has a specific value
 </button>
 
-<button onclick="clearASpecificValueOfTheCookie()">Clear</button>
+<button onclick="clearASpecificValueOfTheCookie()">Clear!!!!</button>
 
 <div>
   <code id="a-specific-value-of-the-cookie"></code>
