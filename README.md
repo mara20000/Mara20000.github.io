@@ -1,36 +1,29 @@
 # Mara20000.github.io
 
 <script>
-function doOnce() {
-  if (
-    !document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("doSomethingOnlyOnce"))
-  ) {
-    // Note that we are setting `SameSite=None;` in this example because the example
-    // needs to work cross-origin.
-    // It is more common not to set the `SameSite` attribute, which results in the default,
-    // and more secure, value of `SameSite=Lax;`
-    document.cookie =
-      "doSomethingOnlyOnce=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";
+document.cookie = "reader=1; SameSite=None; Secure";
 
-    const output = document.getElementById("do-once");
-    output.textContent = "> Do something here!";
+function checkACookieExists() {
+  if (
+    document.cookie.split(";").some((item) => item.trim().startsWith("reader="))
+  ) {
+    const output = document.getElementById("a-cookie-existence");
+    output.textContent = '> The cookie "reader" exists';
   }
 }
 
-function clearOutputDoOnce() {
-  const output = document.getElementById("do-once");
+function clearOutputACookieExists() {
+  const output = document.getElementById("a-cookie-existence");
   output.textContent = "";
 }
 </script>
 
 <body>
-<button onclick="doOnce()">Only do something once</button>
+<button onclick="checkACookieExists()">Check a cookie exists</button>
 
-<button onclick="clearOutputDoOnce()">Clear</button>
+<button onclick="clearOutputACookieExists()">Clear</button>
 
 <div>
-  <code id="do-once"></code>
+  <code id="a-cookie-existence"></code>
 </div>
 </body>
